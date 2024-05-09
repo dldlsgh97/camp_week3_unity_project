@@ -4,6 +4,7 @@ public class TopDownMovement :MonoBehaviour
 {
     private TopDownController movementController;
     private Rigidbody2D movementRigidbody;
+    [SerializeField] int playerSpeed = 3;
 
     private Vector2 movementDirection = Vector2.zero;
 
@@ -35,7 +36,7 @@ public class TopDownMovement :MonoBehaviour
 
     private void ApplyMovement(Vector2 direction)
     {
-        direction = direction * 5;
+        direction = direction * playerSpeed;
 
         movementRigidbody.velocity = direction;
     }
