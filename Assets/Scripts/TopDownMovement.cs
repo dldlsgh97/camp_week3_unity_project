@@ -4,7 +4,10 @@ public class TopDownMovement :MonoBehaviour
 {
     private TopDownController movementController;
     private Rigidbody2D movementRigidbody;
+    private Animator playerAnim;
     [SerializeField] int playerSpeed = 3;
+
+    
 
     private Vector2 movementDirection = Vector2.zero;
 
@@ -13,6 +16,7 @@ public class TopDownMovement :MonoBehaviour
         // 같은 게임오브젝트의 TopDownController, Rigidbody를 가져올 것 
         movementController = GetComponent<TopDownController>();
         movementRigidbody = GetComponent<Rigidbody2D>();
+        playerAnim = GetComponent<Animator>();
     }
 
     private void Start()
@@ -36,6 +40,14 @@ public class TopDownMovement :MonoBehaviour
 
     private void ApplyMovement(Vector2 direction)
     {
+        if(direction != Vector2.zero)
+        {
+            playerAnim.SetBool("isWalk", true);
+        }
+        else
+        {
+            playerAnim.SetBool("isWalk", false);
+        }
         direction = direction * playerSpeed;
 
         movementRigidbody.velocity = direction;
