@@ -10,6 +10,7 @@ public class PlayerFlip : MonoBehaviour
     private void Awake()
     {
         _controller = GetComponent<TopDownController>();
+        
     }
     void Start()
     {
@@ -19,7 +20,14 @@ public class PlayerFlip : MonoBehaviour
     private void FlipPlayer(Vector2 direction)
     {
         float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        playerSprite.flipX = Mathf.Abs(rotZ) > 90f;
+        Debug.Log(Mathf.Abs(rotZ));
+        if (Mathf.Abs(rotZ) > 90f)
+        {
+            transform.localScale = new Vector3(-0.5f, 0.5f, 0);
+        }
+        else
+        {
+            transform.localScale = new Vector3(0.5f, 0.5f, 0);
+        }
     }
 }
