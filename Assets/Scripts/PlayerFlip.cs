@@ -23,11 +23,13 @@ public class PlayerFlip : MonoBehaviour
         Debug.Log(Mathf.Abs(rotZ));
         if (Mathf.Abs(rotZ) > 90f)
         {
-            transform.localScale = new Vector3(-0.5f, 0.5f, 0);
+            playerSprite.flipX = true;
+            //transform.localScale = new Vector3(-0.5f, 0.5f, 0);
         }
         else
         {
-            transform.localScale = new Vector3(0.5f, 0.5f, 0);
+            playerSprite.flipX = false;
+            //transform.localScale = new Vector3(0.5f, 0.5f, 0);
         }
     }
 }
