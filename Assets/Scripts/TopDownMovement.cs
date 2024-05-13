@@ -21,10 +21,16 @@ public class TopDownMovement :MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("TopDownMovement Start");
         // OnMoveEvent에 Move를 호출하라고 등록함
         movementController.OnMoveEvent += Move;
-    }
+        ChangePlayerSprite();
 
+    }
+    private void Update()
+    {
+        ChangePlayerSprite();
+    }
     private void FixedUpdate()
     {
         // 물리 업데이트에서 움직임 적용
@@ -33,8 +39,6 @@ public class TopDownMovement :MonoBehaviour
 
     private void Move(Vector2 direction)
     {
-        // 이동방향만 정해두고 실제로 움직이지는 않음.
-        // 움직이는 것은 물리 업데이트에서 진행(rigidbody가 물리니까)
         movementDirection = direction;
     }
 
@@ -52,4 +56,19 @@ public class TopDownMovement :MonoBehaviour
 
         movementRigidbody.velocity = direction;
     }
+    void ChangePlayerSprite()
+    {
+        if(GameManager.Instance.playerId == -1)
+        {
+            Debug.Log("Player Penguin");
+            playerAnim.SetBool("isPenguin", true);
+        }
+        else if (GameManager.Instance.playerId == 1)
+        {
+            Debug.Log("Player Knight");
+            playerAnim.SetBool("isPenguin", false);
+        }
+
+    }
+
 }
