@@ -7,19 +7,15 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager Instance;
+    public GameObject player;
     [Header ("Start UI")]
     [SerializeField] GameObject startUI;
     [SerializeField] InputField nameInput;
-    [SerializeField] Text nameText;
-    [SerializeField] GameObject player;
+    [SerializeField] Text nameText;   
     [SerializeField] GameObject playerChoiceWindow;
     [SerializeField] GameObject player_Penguin;
-    [SerializeField] GameObject player_Knight;
-    
-
-    [Header("Time UI")]
-    [SerializeField] Text timeText;
-    DateTime currentTime;
+    [SerializeField] GameObject player_Knight;    
 
     [Header("Ingame UI")]
     [SerializeField] GameObject inGameUI;
@@ -31,44 +27,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] Text sideBarPlayernametxt;
     [SerializeField] Text sideBarNPCNametxt;
     [SerializeField] Text npcNameText;
-
-    [Header("Npc Chat")]
-    [SerializeField] GameObject npcObject;
-    private float _distance;
-    [SerializeField] GameObject chatStartUI;
-    [SerializeField] GameObject chatUI;
-    bool isChatClose = true;
-
-    private void Start()
+    private void Awake()
     {
-        if (GameManager.Instance.playerId == -1)
-        {
-            player_Penguin.SetActive(true);
-        }
-        else
-        {
-            player_Knight.SetActive(true);
-        }
-        
-    }
-    
-    private void Update()
-    {
-        currentTime = DateTime.Now;
-        int hour = currentTime.Hour;
-        int minute = currentTime.Minute;
-        timeText.text = $"{hour}:{minute}";
-
-        _distance = Vector2.Distance(player.transform.position, npcObject.transform.position);
-        if(_distance <= 4.5f && isChatClose)
-        {
-            ShowChatStartUI();
-        }
-        else if (_distance >= 4.5f)
-        {
-            CloseChatStartUI();
-        }
-
+        Instance = this;
     }
     public void OnClickJoinBtn()
     {
@@ -161,33 +122,6 @@ public class UIManager : MonoBehaviour
         playerChoiceWindow.SetActive(true);
     }
 
-    void ShowChatStartUI()
-    {
-        chatStartUI.SetActive(true);
-    }
-    void CloseChatStartUI()
-    {
-        chatStartUI.SetActive(false);
-    }
-    public void ClickChatStartEnterBtn()
-    {
-        chatStartUI.SetActive(false);
-        isChatClose = false;
-        ShowChatUI();
-    }
-
-    void ShowChatUI()
-    {
-        chatUI.SetActive(true);
-    }
-    void CloseChatUI()
-    {
-        chatUI.SetActive(false);
-    }
-    public void ClickChatEnterBtn()
-    {
-        CloseChatUI();
-        isChatClose = true;
-    }
+    
 
 }
