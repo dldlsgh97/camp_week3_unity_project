@@ -10,9 +10,24 @@ public class UIManager : MonoBehaviour
     [SerializeField] InputField nameInput;
     [SerializeField] Text nameText;
     [SerializeField] GameObject player;
-
+    [SerializeField] GameObject playerChoiceWindow;
+    [SerializeField] GameObject player_Penguin;
+    [SerializeField] GameObject player_Knight;
+    private void Start()
+    {
+        Debug.Log("UIManager Start");
+        if (GameManager.Instance.playerId == -1)
+        {
+            player_Penguin.SetActive(true);
+        }
+        else
+        {
+            player_Knight.SetActive(true);
+        }
+    }
     public void OnClickJoinBtn()
     {
+        Debug.Log("Click JoinBtn");
         if(nameInput != null)
         {
             int nameLength = nameInput.text.Length;
@@ -22,6 +37,43 @@ public class UIManager : MonoBehaviour
                 nameText.text = $"{nameInput.text}";
                 startUI.SetActive(false);
             }
+        }
+    }
+    public void OpenCharacterChoiceWindow()
+    {
+        Debug.Log("UIManager Func");
+        if (GameManager.Instance.playerId == -1)
+        {
+            player_Penguin.SetActive(false);
+        }
+        else
+        {
+            player_Knight.SetActive(false);
+        }
+        playerChoiceWindow.SetActive(true);
+
+    }
+    public void ChoosePenguin()
+    {
+        GameManager.Instance.playerId = -1;
+        CloseCharacterChoiceWindow();
+    }
+    public void ChooseKnight()
+    {
+        GameManager.Instance.playerId = 1;
+        CloseCharacterChoiceWindow();
+    }
+
+    public void CloseCharacterChoiceWindow()
+    {
+        playerChoiceWindow.SetActive(false);
+        if (GameManager.Instance.playerId == -1)
+        {
+            player_Penguin.SetActive(true);           
+        }
+        else
+        {
+            player_Knight.SetActive(true);
         }
     }
 }
