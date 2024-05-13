@@ -142,4 +142,9 @@ public class UIManager : MonoBehaviour
         sideBarNPCNametxt.text = $"{npcNameText.text}";
         sideBarPlayernametxt.text = $"{nameText.text}";
     }
+
+    public void IngameChangePlayer()
+    {
+        playerChoiceWindow.SetActive(true);
+    }
 }
