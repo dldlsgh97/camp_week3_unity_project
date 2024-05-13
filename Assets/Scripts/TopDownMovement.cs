@@ -21,7 +21,6 @@ public class TopDownMovement :MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("TopDownMovement Start");
         // OnMoveEvent에 Move를 호출하라고 등록함
         movementController.OnMoveEvent += Move;
         ChangePlayerSprite();
@@ -60,12 +59,10 @@ public class TopDownMovement :MonoBehaviour
     {
         if(GameManager.Instance.playerId == -1)
         {
-            Debug.Log("Player Penguin");
             playerAnim.SetBool("isPenguin", true);
         }
         else if (GameManager.Instance.playerId == 1)
         {
-            Debug.Log("Player Knight");
             playerAnim.SetBool("isPenguin", false);
         }
 
