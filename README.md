@@ -9,6 +9,7 @@
 ---
 
 ## 📽️ : 시연영상
+![2024-05-1320-11-41-ezgif com-video-to-gif-converter](https://github.com/dldlsgh97/camp_week3_unity_project/assets/45443021/3b5fd721-cef8-4e02-8df5-1183af749a89)
 
 ---
 
