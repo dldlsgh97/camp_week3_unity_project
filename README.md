@@ -4,7 +4,7 @@
 
 - Name : 유니티 탑뷰 게임 프로젝트
 - Stack : Unity, C#
-- Notion : [유니티 탑뷰 게임 프로젝트](https://www.notion.so/dd0c9b2b75b14ceca7fc22e200dec716?pvs=21)
+- Notion : [유니티 탑뷰 게임 프로젝트](https://grateful-background-fcc.notion.site/dd0c9b2b75b14ceca7fc22e200dec716?pvs=4)
 
 ---
 
