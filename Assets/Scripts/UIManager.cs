@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,9 +14,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject playerChoiceWindow;
     [SerializeField] GameObject player_Penguin;
     [SerializeField] GameObject player_Knight;
+
+    [SerializeField] Text timeText;
+    DateTime currentTime;
+
     private void Start()
     {
-        Debug.Log("UIManager Start");
         if (GameManager.Instance.playerId == -1)
         {
             player_Penguin.SetActive(true);
@@ -24,6 +28,7 @@ public class UIManager : MonoBehaviour
         {
             player_Knight.SetActive(true);
         }
+        
     }
     public void OnClickJoinBtn()
     {
@@ -38,6 +43,13 @@ public class UIManager : MonoBehaviour
                 startUI.SetActive(false);
             }
         }
+    }
+    private void Update()
+    {
+        currentTime = DateTime.Now;
+        int hour = currentTime.Hour;
+        int minute = currentTime.Minute;
+        timeText.text = $"{hour}:{minute}";
     }
     public void OpenCharacterChoiceWindow()
     {
