@@ -7,8 +7,6 @@ public class TopDownMovement :MonoBehaviour
     private Animator playerAnim;
     [SerializeField] int playerSpeed = 3;
 
-    
-
     private Vector2 movementDirection = Vector2.zero;
 
     private void Awake()

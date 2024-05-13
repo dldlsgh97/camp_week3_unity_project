@@ -345,6 +345,8 @@ GameObject:
   m_Component:
   - component: {fileID: 85071041}
   - component: {fileID: 85071040}
+  - component: {fileID: 85071043}
+  - component: {fileID: 85071042}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -364,14 +366,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab2b67ee5a4cff1458424a47bdab2bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 996330115}
   startUI: {fileID: 882570707}
   nameInput: {fileID: 2058938920}
   nameText: {fileID: 592822406}
-  player: {fileID: 996330115}
   playerChoiceWindow: {fileID: 480118047}
   player_Penguin: {fileID: 1712126794}
   player_Knight: {fileID: 1958146909}
-  timeText: {fileID: 1256655949}
   inGameUI: {fileID: 679761340}
   changeNameUI: {fileID: 1146854897}
   changeNameInput: {fileID: 1918664651}
@@ -379,9 +380,6 @@ MonoBehaviour:
   sideBarPlayernametxt: {fileID: 250628130}
   sideBarNPCNametxt: {fileID: 2038406057}
   npcNameText: {fileID: 1481836017}
-  npcObject: {fileID: 1666398344}
-  chatStartUI: {fileID: 1957004868}
-  chatUI: {fileID: 195053987}
 --- !u!4 &85071041
 Transform:
   m_ObjectHideFlags: 0
@@ -397,6 +395,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &85071042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85071039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd9263331cbf59844bb8459a7e206dfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcObject: {fileID: 1666398344}
+  chatStartUI: {fileID: 1957004868}
+  chatUI: {fileID: 195053987}
+--- !u!114 &85071043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85071039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb332162a710a8644994bfccdfd990c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeText: {fileID: 1256655949}
 --- !u!1 &189111182
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,8 +974,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 85071040}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 85071042}
+        m_TargetAssemblyTypeName: ChatUIManager, Assembly-CSharp
         m_MethodName: ClickChatEnterBtn
         m_Mode: 1
         m_Arguments:
@@ -14402,8 +14428,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 85071040}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 85071042}
+        m_TargetAssemblyTypeName: ChatUIManager, Assembly-CSharp
         m_MethodName: ClickChatStartEnterBtn
         m_Mode: 1
         m_Arguments:
